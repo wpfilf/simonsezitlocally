@@ -57,10 +57,14 @@
 {
     for (ESTBeacon *beacon in beacons) {
         NSLog(@"ID: %d distance: %f", beacon.color, beacon.distance)
+        //if ([isClosestBeacon beacon.distance]) .. call color stuff in uig
     })
     
 }
 
+- (BOOL)isClosestBeacon:(NSNumber) distance {
+    distance < 0.05 ? return true: return false;
+}
 
 
 - (void)didReceiveMemoryWarning {
