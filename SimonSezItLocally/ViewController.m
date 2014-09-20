@@ -7,14 +7,17 @@
 //
 
 #import "ViewController.h"
-
+#import <CoreLocation/CoreLocation.h>
+#import <CoreBluetooth/CoreBluetooth.h>
 #import "ESTBeaconManager.h"
 
-@interface ViewController () <ESTBeaconManagerDelegate>
+@interface ViewController () <ESTBeaconManagerDelegate,CLLocationManagerDelegate>
 
 @property (nonatomic, strong) ESTBeacon         *beacon;
 @property (nonatomic, strong) ESTBeaconManager  *beaconManager;
 @property (nonatomic, strong) ESTBeaconRegion   *beaconRegion;
+@property (strong, nonatomic) CBPeripheralManager *peripheralManager;
+@property (strong, nonatomic) CLLocationManager *locationManager;
 
 - (void)beaconManagerSetup;
 
@@ -36,18 +39,25 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    NSLog(@"did load");
+    
     [self beaconManagerSetup];
+    [self setupUI];
 
 }
 
 - (void)beaconManagerSetup {
+    
     self.beaconManager = [[ESTBeaconManager alloc] init];
     self.beaconManager.delegate = self;
+    
+    [self.beaconManager requestAlwaysAuthorization];
     
     self.beaconRegion = [[ESTBeaconRegion alloc] initWithProximityUUID:self.beacon.proximityUUID
                                                                  major:[self.beacon.major unsignedIntValue]
                                                                  minor:[self.beacon.minor unsignedIntValue]
                                                             identifier:@"RegionIdentifier"];
+    
     [self.beaconManager startRangingBeaconsInRegion:self.beaconRegion];
 
 }
@@ -64,8 +74,56 @@
 
 - (BOOL)isClosestBeacon:(NSNumber) distance {
     distance < 0.05 ? return true: return false;
+    }
+    
 }
 
+//- (void)setupUI {
+//    
+//    //add tap listeners
+//    
+//    UITapGestureRecognizer *blueTap =
+//    [[UITapGestureRecognizer alloc] initWithTarget:self
+//                                            action:@selector(handleBlueTap:)];
+//    [self.blueImageView addGestureRecognizer:blueTap];
+//    
+//    UITapGestureRecognizer *greenTap =
+//    [[UITapGestureRecognizer alloc] initWithTarget:self
+//                                            action:@selector(handleGreenTap:)];
+//    [self.greenImageView addGestureRecognizer:greenTap];
+//    
+//    UITapGestureRecognizer *purpleTap =
+//    [[UITapGestureRecognizer alloc] initWithTarget:self
+//                                            action:@selector(handlePurpleTap:)];
+//    [self.purpleImageView addGestureRecognizer:purpleTap];
+//    
+//}
+
+
+//The event handling methods
+- (void)showBlueActive {
+    
+    [self.blueImageView setImage:[UIImage imageNamed:@"beacon_blue_active"]];
+    [self.greenImageView setImage:[UIImage imageNamed:@"beacon_green"]];
+    [self.purpleImageView setImage:[UIImage imageNamed:@"beacon_purple"]];
+    
+>>>>>>> 99f513ba6f267f379fc056831fd21f9cf3f77bb5
+}
+
+- (void)showGreenActive {
+    
+    [self.greenImageView setImage:[UIImage imageNamed:@"beacon_green_active"]];
+    [self.purpleImageView setImage:[UIImage imageNamed:@"beacon_purple"]];
+    [self.blueImageView setImage:[UIImage imageNamed:@"beacon_blue"]];
+    
+}
+
+- (void)showPurpleActive {
+    
+    [self.purpleImageView setImage:[UIImage imageNamed:@"beacon_purple_active"]];
+    [self.blueImageView setImage:[UIImage imageNamed:@"beacon_blue"]];
+    [self.greenImageView setImage:[UIImage imageNamed:@"beacon_green"]];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

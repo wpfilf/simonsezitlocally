@@ -7,14 +7,16 @@
 //
 
 #import "GameUtils.h"
+#include <stdlib.h>
 
 @implementation GameUtils
 
 + (NSArray*)generateGameColorSeq:(short)sizeOfSeq {
+    
     NSMutableArray *gameColorSeq = [[NSMutableArray alloc] initWithCapacity:sizeOfSeq];
     
     for (int i = 0; i < sizeOfSeq; i++) {
-        int r = arc4random(3);
+        int r = arc4random_uniform(3);
         NSNumber *n = [NSNumber numberWithInt:r];
         [gameColorSeq addObject:n];
     }
@@ -27,14 +29,12 @@
     switch (code) {
         case 0:
             return [UIColor purpleColor];
-            break;
         case 1:
             return [UIColor blueColor];
         case 2:
             return [UIColor greenColor];
         default:
             return [UIColor whiteColor];
-            break;
     }
 }
 
