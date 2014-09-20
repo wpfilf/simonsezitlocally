@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ColoredTableViewCell.h
 //  SimonSezItLocally
 //
 //  Created by Wilfried on 20.09.14.
@@ -7,11 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ESTBeacon.h"
 
-@interface ViewController : UIViewController 
-
-- (id)initWithBeacon:(ESTBeacon *)beacon;
+@interface ColoredTableViewCell : UITableViewCell
 
 @end
-
