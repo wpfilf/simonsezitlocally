@@ -16,7 +16,7 @@
     NSMutableArray *gameColorSeq = [[NSMutableArray alloc] initWithCapacity:sizeOfSeq];
     
     for (int i = 0; i < sizeOfSeq; i++) {
-        int r = arc4random_uniform(3);
+        int r = arc4random_uniform(3) + 1 ;
         NSNumber *n = [NSNumber numberWithInt:r];
         [gameColorSeq addObject:n];
     }
