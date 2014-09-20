@@ -55,22 +55,12 @@
 
 - (void)beaconManager:(ESTBeaconManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(ESTBeaconRegion *)region
 {
-    ESTBeacon *firstBeacon = [beacons firstObject];
+    for (ESTBeacon *beacon in beacons) {
+        NSLog(@"ID: %d distance: %f", beacon.color, beacon.distance)
+    })
     
-    [self updateDotPositionForDistance:[firstBeacon.distance floatValue]];
 }
 
-
-- (void)updateDotPositionForDistance:(float)distance
-{
-    NSLog(@"distance: %f", distance);
-    
-//    float step = (self.view.frame.size.height - TOP_MARGIN) / MAX_DISTANCE;
-//    
-//    int newY = TOP_MARGIN + (distance * step);
-//    
-//    [self.positionDot setCenter:CGPointMake(self.positionDot.center.x, newY)];
-}
 
 
 - (void)didReceiveMemoryWarning {
