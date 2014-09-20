@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ColoredTableViewCell.h
 //  SimonSezItLocally
 //
 //  Created by Wilfried on 20.09.14.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController 
-
+@interface ColoredTableViewCell : UITableViewCell
 
 @end
-

@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ColoredTableViewController.h
 //  SimonSezItLocally
 //
 //  Created by Wilfried on 20.09.14.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController 
+@interface ColoredTableViewController : UITableViewController
 
+@property (strong, nonatomic) NSMutableArray *colors;
 
 @end
-
