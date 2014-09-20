@@ -66,35 +66,38 @@
 - (void)beaconManager:(ESTBeaconManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(ESTBeaconRegion *)region
 {
     for (ESTBeacon *beacon in beacons) {
-        NSLog(@"ID: %d distance: %f", beacon.color, beacon.distance)
-    })
+        NSLog(@"ID: %d distance: %@", beacon.color, beacon.distance);
+        
+        
+        
+    }
     
 }
 
-- (void)setupUI {
-    
-    //add tap listeners
-    
-    UITapGestureRecognizer *blueTap =
-    [[UITapGestureRecognizer alloc] initWithTarget:self
-                                            action:@selector(handleBlueTap:)];
-    [self.blueImageView addGestureRecognizer:blueTap];
-    
-    UITapGestureRecognizer *greenTap =
-    [[UITapGestureRecognizer alloc] initWithTarget:self
-                                            action:@selector(handleGreenTap:)];
-    [self.greenImageView addGestureRecognizer:greenTap];
-    
-    UITapGestureRecognizer *purpleTap =
-    [[UITapGestureRecognizer alloc] initWithTarget:self
-                                            action:@selector(handlePurpleTap:)];
-    [self.purpleImageView addGestureRecognizer:purpleTap];
-    
-}
+//- (void)setupUI {
+//    
+//    //add tap listeners
+//    
+//    UITapGestureRecognizer *blueTap =
+//    [[UITapGestureRecognizer alloc] initWithTarget:self
+//                                            action:@selector(handleBlueTap:)];
+//    [self.blueImageView addGestureRecognizer:blueTap];
+//    
+//    UITapGestureRecognizer *greenTap =
+//    [[UITapGestureRecognizer alloc] initWithTarget:self
+//                                            action:@selector(handleGreenTap:)];
+//    [self.greenImageView addGestureRecognizer:greenTap];
+//    
+//    UITapGestureRecognizer *purpleTap =
+//    [[UITapGestureRecognizer alloc] initWithTarget:self
+//                                            action:@selector(handlePurpleTap:)];
+//    [self.purpleImageView addGestureRecognizer:purpleTap];
+//    
+//}
 
 
 //The event handling methods
-- (void)handleBlueTap:(UITapGestureRecognizer *)recognizer {
+- (void)showBlueActive {
     
     [self.blueImageView setImage:[UIImage imageNamed:@"beacon_blue_active"]];
     [self.greenImageView setImage:[UIImage imageNamed:@"beacon_green"]];
@@ -102,7 +105,7 @@
     
 }
 
-- (void)handleGreenTap:(UITapGestureRecognizer *)recognizer {
+- (void)showGreenActive {
     
     [self.greenImageView setImage:[UIImage imageNamed:@"beacon_green_active"]];
     [self.purpleImageView setImage:[UIImage imageNamed:@"beacon_purple"]];
@@ -110,7 +113,7 @@
     
 }
 
-- (void)handlePurpleTap:(UITapGestureRecognizer *)recognizer {
+- (void)showPurpleActive {
     
     [self.purpleImageView setImage:[UIImage imageNamed:@"beacon_purple_active"]];
     [self.blueImageView setImage:[UIImage imageNamed:@"beacon_blue"]];
