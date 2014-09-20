@@ -9,9 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "ESTBeacon.h"
 
-@interface ViewController : UIViewController 
+@interface ViewController : UIViewController
 
 - (id)initWithBeacon:(ESTBeacon *)beacon;
+
+@property (weak, nonatomic) IBOutlet UIImageView *purpleImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *blueImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *greenImageView;
 
 @end
 
