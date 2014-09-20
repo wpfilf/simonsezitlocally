@@ -17,6 +17,7 @@
 		3E392A9919CD844C0071F40F /* SimonSezItLocallyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E392A9819CD844C0071F40F /* SimonSezItLocallyTests.m */; };
 		3E96DFAF19CD8B64001CB5F5 /* ColoredTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E96DFAE19CD8B64001CB5F5 /* ColoredTableViewController.m */; };
 		3E96DFB219CD8BCC001CB5F5 /* ColoredTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E96DFB119CD8BCC001CB5F5 /* ColoredTableViewCell.m */; };
+		6EC9329719CDAF790028FB90 /* GameUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC9329619CDAF790028FB90 /* GameUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,8 @@
 		3E96DFB019CD8BCC001CB5F5 /* ColoredTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColoredTableViewCell.h; sourceTree = "<group>"; };
 		3E96DFB119CD8BCC001CB5F5 /* ColoredTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColoredTableViewCell.m; sourceTree = "<group>"; };
 		68F64F3ECED64BDD9D6001E4 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		6EC9329519CDAF790028FB90 /* GameUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameUtils.h; sourceTree = "<group>"; };
+		6EC9329619CDAF790028FB90 /* GameUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameUtils.m; sourceTree = "<group>"; };
 		9D5A37E5F6CA4D429FA568AB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -105,6 +108,8 @@
 				3E96DFAE19CD8B64001CB5F5 /* ColoredTableViewController.m */,
 				3E96DFB019CD8BCC001CB5F5 /* ColoredTableViewCell.h */,
 				3E96DFB119CD8BCC001CB5F5 /* ColoredTableViewCell.m */,
+				6EC9329519CDAF790028FB90 /* GameUtils.h */,
+				6EC9329619CDAF790028FB90 /* GameUtils.m */,
 			);
 			path = SimonSezItLocally;
 			sourceTree = "<group>";
@@ -279,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E392A8519CD844C0071F40F /* ViewController.m in Sources */,
+				6EC9329719CDAF790028FB90 /* GameUtils.m in Sources */,
 				3E392A8219CD844C0071F40F /* AppDelegate.m in Sources */,
 				3E96DFB219CD8BCC001CB5F5 /* ColoredTableViewCell.m in Sources */,
 				3E96DFAF19CD8B64001CB5F5 /* ColoredTableViewController.m in Sources */,
