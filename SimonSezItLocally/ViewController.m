@@ -42,7 +42,7 @@
     NSLog(@"did load");
     
     [self beaconManagerSetup];
-    [self setupUI];
+    //[self setupUI];
 
 }
 
@@ -66,14 +66,39 @@
 - (void)beaconManager:(ESTBeaconManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(ESTBeaconRegion *)region
 {
     for (ESTBeacon *beacon in beacons) {
-        NSLog(@"ID: %d distance: %f", beacon.color, beacon.distance)
-        //if ([isClosestBeacon beacon.distance]) .. call color stuff in uig
-    })
+        NSLog(@"ID: %d distance: %@", beacon.color, beacon.distance);
+        
+        if ([self isClosestBeacon:[beacon.distance floatValue]]){
+            
+            switch (beacon.color) {
+                case ESTBeaconColorMint:
+                    [self showMintActive];
+                    break;
+                    
+                case ESTBeaconColorIce:
+                    [self showIceActive];
+                    break;
+                    
+                case ESTBeaconColorBlueberry:
+                    [self showBlueBerryActive];
+                    break;
+                    
+                default:
+                    break;
+            }
+            
+        }
+    }
     
 }
 
-- (BOOL)isClosestBeacon:(NSNumber) distance {
-    distance < 0.05 ? return true: return false;
+- (BOOL)isClosestBeacon:(float)distance {
+    
+    if (distance < 0.05){
+        return true;
+    }else {
+        return false;
+
     }
     
 }
@@ -101,16 +126,15 @@
 
 
 //The event handling methods
-- (void)showBlueActive {
+- (void)showIceActive {
     
     [self.blueImageView setImage:[UIImage imageNamed:@"beacon_blue_active"]];
     [self.greenImageView setImage:[UIImage imageNamed:@"beacon_green"]];
     [self.purpleImageView setImage:[UIImage imageNamed:@"beacon_purple"]];
     
->>>>>>> 99f513ba6f267f379fc056831fd21f9cf3f77bb5
 }
 
-- (void)showGreenActive {
+- (void)showMintActive {
     
     [self.greenImageView setImage:[UIImage imageNamed:@"beacon_green_active"]];
     [self.purpleImageView setImage:[UIImage imageNamed:@"beacon_purple"]];
@@ -118,7 +142,7 @@
     
 }
 
-- (void)showPurpleActive {
+- (void)showBlueBerryActive {
     
     [self.purpleImageView setImage:[UIImage imageNamed:@"beacon_purple_active"]];
     [self.blueImageView setImage:[UIImage imageNamed:@"beacon_blue"]];
