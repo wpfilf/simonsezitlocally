@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ESTBeacon.h"
 
 @interface ViewController : UIViewController
 
+- (id)initWithBeacon:(ESTBeacon *)beacon;
 
 @end
 
